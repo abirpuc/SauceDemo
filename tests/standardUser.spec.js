@@ -28,16 +28,15 @@ test.describe("test case design for standard user",()=>{
     })
 
     test("login test case design for standard use", async ({page})=>{
-        // await page.pause()
+       
         await logIn.enterInputData("Username", userName)
         await logIn.enterInputData("Password",password)
         await logIn.clickOnInputButton("Login")
-        // await page.pause()
+        
         await hamBurgerMenu.clickOnButton("Open Menu")
         await hamBurgerMenu.clickOnLink("Reset App State")
         await hamBurgerMenu.clickOnButton("Close Menu")
 
-        // const products =  await productsContainer.productsContainerData(".inventory_item")
         const products = page.locator('.inventory_item')
         const productCount = await products.count()
         expect(productCount).toBeGreaterThanOrEqual(3);
@@ -50,13 +49,10 @@ test.describe("test case design for standard user",()=>{
 
         const randomIndexes = indexes.slice(0, 3);
 
-        // console.log('Random product indexes:', randomIndexes);
-
         for (const index of randomIndexes) {
 
         const product = products.nth(index);
 
-        // const productName = await product.locator('.inventory_item_name').textContent();
         await product.locator('button').click();
         }
 
@@ -70,8 +66,6 @@ test.describe("test case design for standard user",()=>{
         await checkOut.clickOnInputButton("Continue")
         
         
-
-        await page.pause()
         await cart.clickOnButton("Finish")
 
         await hamBurgerMenu.clickOnButton("Open Menu")
@@ -79,8 +73,4 @@ test.describe("test case design for standard user",()=>{
         await hamBurgerMenu.clickOnLink("Logout")
     })
 
-    // test("Test case design for hamburger menu", async ({page})=>{
-    //     await page.pause()
-    //     await hamBurgerMenu.clickHamburgerMenu("Open Menu")
-    // })
 })
