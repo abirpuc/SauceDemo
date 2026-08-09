@@ -1,4 +1,4 @@
-# UI Automation Testing for Swag Labs website Using Playwright
+# UI Automation Testing for the Swag Labs website Using Playwright
 
 ## UI Url: https://www.saucedemo.com/
 
@@ -32,9 +32,8 @@
     2. glitchuser.spec.js. Run the test case using this command: npm run glitchuser
     3. standardUser.spec.js. Run the test case using this command: npm run standardUser
 
-## Run all the test Cases: npm run test
-
-## For the test Report: npx playwright show-report
+    * Run all the test Cases: npm run test
+    * For the test Report: npx playwright show-report
 
 
   
