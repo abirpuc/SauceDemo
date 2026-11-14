@@ -35,12 +35,14 @@ test.describe("Test case design for performance Glitch user", () => {
 
         await hamBurgerMenu.clickOnButton("Open Menu")
         // await page.pause()
-        await hamBurgerMenu.clickOnLink("Reset App State")
+        // await hamBurgerMenu.clickOnLink("Reset App State")
+        await hamBurgerMenu.clickOnMenu("Reset App State")
         await hamBurgerMenu.clickOnButton("Close Menu")
         
         // await page.pause()
-        const dropdown =  await locatorFun.LocatorFunction(".product_sort_container")
-        dropdown.selectOption("za")
+       
+        await locatorFun.clickOnProductShortMenu()
+      
 
 
         const products = page.locator(".inventory_item")
@@ -81,8 +83,8 @@ test.describe("Test case design for performance Glitch user", () => {
 
         await cart.clickOnButton("Back Home")
         await hamBurgerMenu.clickOnButton("Open Menu")
-        await hamBurgerMenu.clickOnLink("Reset App State")
-        await hamBurgerMenu.clickOnLink("Logout")
+        await hamBurgerMenu.clickOnMenu("Reset App State")
+        await hamBurgerMenu.clickOnMenu("Logout")
 
     })
 

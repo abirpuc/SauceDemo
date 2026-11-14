@@ -71,8 +71,9 @@ test.describe("test case design for standard user",()=>{
         
         await cart.clickOnButton("Finish")
 
-        // await hamBurgerMenu.clickOnButton("Open Menu")
+        await hamBurgerMenu.clickOnButton("Open Menu")
         // await hamBurgerMenu.clickOnLink("Reset App State")
+         await hamBurgerMenu.clickOnMenu()
         await hamBurgerMenu.clickOnLink("Logout")
     })
 
