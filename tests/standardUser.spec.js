@@ -6,9 +6,11 @@ import HamBurgerMenu from "../pages/HamBurgerMenu";
 import Products from "../pages/ProductsContainer";
 import CartPage from "../pages/CartPage";
 import CheckoutPage from "../pages/CheckoutPage";
+import LocatorFunction from "../pages/Locator";
+
 
 test.describe("test case design for standard user",()=>{
-    let logIn, hamBurgerMenu,productsContainer, cart, checkOut
+    let logIn, hamBurgerMenu,productsContainer, cart, checkOut, locatorFun;
 
     let userName = "standard_user"
     let password = "secret_sauce"
@@ -24,6 +26,7 @@ test.describe("test case design for standard user",()=>{
         productsContainer = new Products(page)
         cart = new CartPage(page)
         checkOut = new CheckoutPage(page)
+        locatorFun = new LocatorFunction(page)
         page.goto("/")
     })
 
@@ -37,7 +40,7 @@ test.describe("test case design for standard user",()=>{
         await hamBurgerMenu.clickOnLink("Reset App State")
         await hamBurgerMenu.clickOnButton("Close Menu")
 
-        const products = page.locator('.inventory_item')
+        const products = locatorFun.clickLocator(".inventory_item")
         const productCount = await products.count()
         expect(productCount).toBeGreaterThanOrEqual(3);
 
@@ -50,13 +53,13 @@ test.describe("test case design for standard user",()=>{
         const randomIndexes = indexes.slice(0, 3);
 
         for (const index of randomIndexes) {
+            const product = products.nth(index);
 
-        const product = products.nth(index);
-
-        await product.locator('button').click();
+            await product.locator('button').click();
+            // await product.clickOnButton('button')
         }
 
-        await page.locator('.shopping_cart_link').click()  
+        await locatorFun.clickLocator('.shopping_cart_link').click()  
         await cart.clickOnButton("Checkout")
         
         await checkOut.enterInputData("First Name", firstName)
@@ -68,8 +71,8 @@ test.describe("test case design for standard user",()=>{
         
         await cart.clickOnButton("Finish")
 
-        await hamBurgerMenu.clickOnButton("Open Menu")
-        await hamBurgerMenu.clickOnLink("Reset App State")
+        // await hamBurgerMenu.clickOnButton("Open Menu")
+        // await hamBurgerMenu.clickOnLink("Reset App State")
         await hamBurgerMenu.clickOnLink("Logout")
     })
 

@@ -4,10 +4,12 @@ import LoginPage from "../pages/LoginPage";
 import HamBurgerMenu from "../pages/HamBurgerMenu";
 import CartPage from "../pages/CartPage";
 import CheckoutPage from "../pages/CheckoutPage";
+import LocatorFunction from "../pages/Locator";
 
 test.describe("Test case design for performance Glitch user", () => {
 
-    let logIn, hamBurgerMenu, cart, checkOut
+    let logIn, hamBurgerMenu, cart, checkOut, locatorFun;
+
 
     let userName = "performance_glitch_user"
     let passWord = "secret_sauce"
@@ -21,6 +23,7 @@ test.describe("Test case design for performance Glitch user", () => {
         hamBurgerMenu = new HamBurgerMenu(page)
         cart = new CartPage(page)
         checkOut = new CheckoutPage(page)
+        locatorFun = new LocatorFunction(page)
         page.goto("/")
     })
 
@@ -31,10 +34,13 @@ test.describe("Test case design for performance Glitch user", () => {
 
 
         await hamBurgerMenu.clickOnButton("Open Menu")
+        // await page.pause()
         await hamBurgerMenu.clickOnLink("Reset App State")
         await hamBurgerMenu.clickOnButton("Close Menu")
+        
         // await page.pause()
-        await page.locator(".product_sort_container").selectOption("za")
+        const dropdown =  await locatorFun.LocatorFunction(".product_sort_container")
+        dropdown.selectOption("za")
 
 
         const products = page.locator(".inventory_item")

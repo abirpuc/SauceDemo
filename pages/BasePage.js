@@ -22,13 +22,9 @@ export default class BasePage{
         return this.page.getByRole("link", {name: text})
     }
 
-    // products(text){
-    //     return page.locator(text)
-    // }
-
-    // errorMessage(){
-    //     return this.page.locator("[data-test='error']")
-    // }
+    clickLocator(text){
+        return this.page.locator(text)
+    }
 
     // methods for login
 
@@ -49,14 +45,4 @@ export default class BasePage{
     async clickOnLink(text){
         await this.linkData(text).click()
     }
-
-    // products methods container
-
-    // async productsContainerData(text){
-    //     await this.products(text)
-    // }
-
-    // async getErrorMessage(){
-    //     await this.errorMessage().textContent()
-    // }
 }
