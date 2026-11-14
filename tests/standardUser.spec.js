@@ -37,7 +37,7 @@ test.describe("test case design for standard user",()=>{
         await logIn.clickOnInputButton("Login")
         
         await hamBurgerMenu.clickOnButton("Open Menu")
-        await hamBurgerMenu.clickOnLink("Reset App State")
+        await hamBurgerMenu.clickOnMenu("Reset App State")
         await hamBurgerMenu.clickOnButton("Close Menu")
 
         const products = locatorFun.clickLocator(".inventory_item")
@@ -72,9 +72,8 @@ test.describe("test case design for standard user",()=>{
         await cart.clickOnButton("Finish")
 
         await hamBurgerMenu.clickOnButton("Open Menu")
-        // await hamBurgerMenu.clickOnLink("Reset App State")
-         await hamBurgerMenu.clickOnMenu()
-        await hamBurgerMenu.clickOnLink("Logout")
+        await hamBurgerMenu.clickOnMenu("Reset App State")
+        await hamBurgerMenu.clickOnMenu("Logout")
     })
 
 })

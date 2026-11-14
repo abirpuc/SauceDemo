@@ -34,12 +34,10 @@ test.describe("Test case design for performance Glitch user", () => {
 
 
         await hamBurgerMenu.clickOnButton("Open Menu")
-        // await page.pause()
-        // await hamBurgerMenu.clickOnLink("Reset App State")
         await hamBurgerMenu.clickOnMenu("Reset App State")
         await hamBurgerMenu.clickOnButton("Close Menu")
         
-        // await page.pause()
+        
        
         await locatorFun.clickOnProductShortMenu()
       
